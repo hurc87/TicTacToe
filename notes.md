@@ -97,4 +97,27 @@ It passes props down from the parent class (Board) to the child class (Square).
         // Or if you are using object spread syntax proposal, you can write:
         // var newPlayer = {...player, score: 2};
 
+* Changed the Class component of Square to a function component as all it needs to do is render and does not have its own state. As there is no state now, this.props is changed to props.
+
+* Note
+
+When we modified the Square to be a function component, we also changed onClick={() => this.props.onClick()} to a shorter onClick={props.onClick} (note the lack of parentheses on both sides). In a class, we used an arrow function to access the correct this value, but in a function component we don’t need to worry about this.
+
+* Taking turns :
+
+  We are setting X to be the first player by doing the following:
+
+  In Board constructor :
+
+        xIsNext: true,
+
+  In handleClick:
+
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        this.setState({
+        squares: squares,
+        xIsNext: !this.state.xIsNext,
+
+  The first line will play X if xIsNext is true, once this has been done the xIsNext will be flipped to false, meaning it is now O's turn.
+
 * 
