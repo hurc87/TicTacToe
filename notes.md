@@ -120,4 +120,8 @@ When we modified the Square to be a function component, we also changed onClick=
 
   The first line will play X if xIsNext is true, once this has been done the xIsNext will be flipped to false, meaning it is now O's turn.
 
+* Note
+
+Unlike the array push() method you might be more familiar with, the concat() method doesn’t mutate the original array, so we prefer it
+
 * 
